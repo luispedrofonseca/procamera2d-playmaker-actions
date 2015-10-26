@@ -1,4 +1,4 @@
-﻿#if PC2D_PLAYMAKER_SUPPORT
+﻿// __ECO__ __PROCAMERA2D__ __ACTION
 
 using Com.LuisPedroFonseca.ProCamera2D;
 using HutongGames.PlayMaker;
@@ -11,14 +11,9 @@ public class ProCamera2DApplyInfluenceAction : FsmStateAction
     [Tooltip("The vector representing the influence to be applied")]
     public FsmVector2 Influence;
 
-    [Tooltip("Is this influence a shake? (Ignores boundaries)")]
-    public FsmBool IsShakeInfluence;
-
     public override void OnUpdate() 
     {
         if (ProCamera2D.Instance != null)
-            ProCamera2D.Instance.ApplyInfluence(Influence.Value, IsShakeInfluence.Value);
+            ProCamera2D.Instance.ApplyInfluence(Influence.Value);
     }
 }
-
-#endif

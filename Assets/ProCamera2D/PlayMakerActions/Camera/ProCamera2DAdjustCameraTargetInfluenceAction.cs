@@ -1,15 +1,15 @@
-﻿#if PC2D_PLAYMAKER_SUPPORT
+﻿// __ECO__ __PROCAMERA2D__ __ACTION
 
 using Com.LuisPedroFonseca.ProCamera2D;
 using HutongGames.PlayMaker;
 using TooltipAttribute = HutongGames.PlayMaker.TooltipAttribute;
 
 [ActionCategory(ActionCategory.Camera)]
-[Tooltip("Add a target for the camera to follow.")]
-public class ProCamera2DAddTargetAction : FsmStateAction 
+[Tooltip("Adjusts a target influence")]
+public class ProCamera2DAdjustCameraTargetInfluenceAction : FsmStateAction 
 {
     [RequiredField]
-    [Tooltip("The camera target to add")]
+    [Tooltip("The Transform of the target")]
     public FsmGameObject target;
 
     [HasFloatSlider(0, 1)]
@@ -26,10 +26,8 @@ public class ProCamera2DAddTargetAction : FsmStateAction
     public override void OnEnter() 
     {
         if (ProCamera2D.Instance != null && target.Value)
-            ProCamera2D.Instance.AddCameraTarget(target.Value.transform, targetInfluenceH.Value, targetInfluenceV.Value, duration.Value);
+            ProCamera2D.Instance.AdjustCameraTargetInfluence(target.Value.transform, targetInfluenceH.Value, targetInfluenceV.Value, duration.Value);
 
         Finish();
     }
 }
-
-#endif

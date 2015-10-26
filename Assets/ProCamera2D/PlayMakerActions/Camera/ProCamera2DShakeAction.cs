@@ -1,4 +1,4 @@
-﻿#if PC2D_PLAYMAKER_SUPPORT
+﻿// __ECO__ __PROCAMERA2D__ __ACTION
 
 using Com.LuisPedroFonseca.ProCamera2D;
 using HutongGames.PlayMaker;
@@ -39,5 +39,3 @@ public class ProCamera2DShakeAction : FsmStateAction
         Finish();
     }
 }
-
-#endif
